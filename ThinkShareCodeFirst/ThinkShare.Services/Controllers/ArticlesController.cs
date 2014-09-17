@@ -159,7 +159,7 @@
 
             existingArticle.Heading = article.ArticleHead;
             existingArticle.Text = article.ArticleText;
-            existingArticle.Date = article.Date;
+            existingArticle.Date = DateTime.Now;
             existingArticle.Author = article.ArticleAuthor;
             existingArticle.CategoryId = article.Category;
 
@@ -183,7 +183,7 @@
                 Heading = article.ArticleHead,
                 Author = article.ArticleAuthor,
                 Text = article.ArticleText,
-                Date = article.Date,
+                Date = DateTime.Now,
                 CategoryId = article.Category,
                 Password = article.Password
             };

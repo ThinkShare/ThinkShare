@@ -1,13 +1,10 @@
 ﻿namespace ThinkShare.Services.Controllers
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Net;
-    using System.Net.Http;
     using System.Web.Http;
     using System.Web.Http.Description;
     using ThinkShare.Model;
@@ -34,6 +31,19 @@
             }
 
             return Ok(article);
+        }
+
+        // GET: api/Articles/Pesho
+        [ResponseType(typeof(Article))]
+        public IHttpActionResult GetArticlesByAuthorName(string name)
+        {
+            var articles = db.Articles.Where(x => x.Author == name);
+            if (articles.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(articles);
         }
 
         // PUT: api/Articles/5

@@ -78,11 +78,38 @@
             }));
         }
 
-        // GET: api/Articles/Pesho
+        // GET: api/Articles/Categories/3
         [ResponseType(typeof(Article))]
         public IHttpActionResult GetArticlesByCategoryId(int id)
         {
             var articles = db.Articles.Where(x => x.Category.Id == id);
+            if (articles.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(articles.Select(x => new
+            {
+                articleId = x.Id,
+                articleHead = x.Heading,
+                articleAuthor = x.Author,
+                articleText = x.Text,
+                date = x.Date,
+                category = x.Category.Title,
+                comments = x.Comments.Select(y => new
+                {
+                    author = y.Author,
+                    text = y.Text
+                })
+            }));
+        }
+
+        // GET: api/Articles/Pesho
+        [ResponseType(typeof(Article))]
+        public IHttpActionResult GetArticlesByTag(Tag tag)
+        {
+            var articles = db.Articles.Where(x => x.Tags.Contains(tag));
+
             if (articles.Count() == 0)
             {
                 return NotFound();

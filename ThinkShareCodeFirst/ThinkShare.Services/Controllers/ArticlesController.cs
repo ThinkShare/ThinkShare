@@ -43,7 +43,7 @@
                 articleAuthor = article.Author,
                 articleText = article.Text,
                 date = article.Date,
-                category = article.Category.Title,
+                category = article.Category.Id,
                 comments = article.Comments.Select(x => new
                 {
                     author = x.Author,

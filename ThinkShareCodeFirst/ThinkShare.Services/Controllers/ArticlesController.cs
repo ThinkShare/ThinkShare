@@ -133,39 +133,36 @@
             }));
         }
 
-        // PUT: api/Articles/5
+        // PUT: api/Articles/PutArticle/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutArticle(int id, Article article)
+        public IHttpActionResult PutArticle(int id, ArticlesInputModel article)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != article.Id)
+            var existingArticle = this.db.Articles.FirstOrDefault(a => a.Id == id);
+
+            if (existingArticle == null)
             {
-                return BadRequest();
+                return BadRequest("Such article does not exists!");
+            }
+            else if (existingArticle.Password != article.Password)
+            {
+                return BadRequest("Invalid password!");
             }
 
-            db.Entry(article).State = EntityState.Modified;
+            existingArticle.Heading = article.Heading;
+            existingArticle.Text = article.Text;
+            existingArticle.Date = article.Date;
+            existingArticle.Author = article.Author;
+            existingArticle.CategoryId = article.CategoryId;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ArticleExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            this.db.SaveChanges();
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
+            //return Ok(existingArticle);
         }
 
         // POST: api/Articles/PostArticle
@@ -195,18 +192,24 @@
 
         // DELETE: api/Articles/5
         [ResponseType(typeof(Article))]
-        public IHttpActionResult DeleteArticle(int id)
+        public IHttpActionResult DeleteArticle(int id, string password)
         {
-            Article article = db.Articles.Find(id);
-            if (article == null)
+            var existingArticle = this.db.Articles.FirstOrDefault(a => a.Id == id);
+
+            if (existingArticle == null)
             {
-                return NotFound();
+                return BadRequest("Such aircraft does not exists!");
             }
 
-            db.Articles.Remove(article);
-            db.SaveChanges();
+            else if (existingArticle.Password != password)
+            {
+                return BadRequest("Invalid password!");
+            }
 
-            return Ok(article);
+            this.db.Articles.Remove(existingArticle);
+            this.db.SaveChanges();
+
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

@@ -72,7 +72,7 @@
                 articleAuthor = x.Author,
                 articleText = x.Text,
                 date = x.Date,
-                category = x.Category.Title,
+                category = x.Category.Id,
                 comments = x.Comments.Select(y => new
                 {
                     author = y.Author,
@@ -99,7 +99,7 @@
                 articleAuthor = x.Author,
                 articleText = x.Text,
                 date = x.Date,
-                category = x.Category.Title,
+                category = x.Category.Id,
                 comments = x.Comments.Select(y => new
                 {
                     author = y.Author,
@@ -127,7 +127,7 @@
                 articleAuthor = x.Author,
                 articleText = x.Text,
                 date = x.Date,
-                category = x.Category.Title,
+                category = x.Category.Id,
                 comments = x.Comments.Select(y => new
                 {
                     author = y.Author,
@@ -157,11 +157,11 @@
                 return BadRequest("Invalid password!");
             }
 
-            existingArticle.Heading = article.Heading;
-            existingArticle.Text = article.Text;
+            existingArticle.Heading = article.ArticleHead;
+            existingArticle.Text = article.ArticleText;
             existingArticle.Date = article.Date;
-            existingArticle.Author = article.Author;
-            existingArticle.CategoryId = article.CategoryId;
+            existingArticle.Author = article.ArticleAuthor;
+            existingArticle.CategoryId = article.Category;
 
             this.db.SaveChanges();
 
@@ -180,11 +180,11 @@
 
             var newArticle = new Article
             {
-                Heading = article.Heading,
-                Author = article.Author,
-                Text = article.Text,
+                Heading = article.ArticleHead,
+                Author = article.ArticleAuthor,
+                Text = article.ArticleText,
                 Date = article.Date,
-                CategoryId = article.CategoryId,
+                CategoryId = article.Category,
                 Password = article.Password
             };
 

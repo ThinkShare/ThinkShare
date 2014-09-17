@@ -4,16 +4,16 @@
 
     public class ArticlesInputModel
     {
-        public string Heading { get; set; }
+        public string ArticleHead { get; set; }
 
-        public string Author { get; set; }
+        public string ArticleAuthor { get; set; }
 
-        public string Text { get; set; }
+        public string ArticleText { get; set; }
 
         public DateTime Date { get; set; }
 
         public string Password { get; set; }
 
-        public int CategoryId { get; set; }
+        public int Category { get; set; }
     }
 }

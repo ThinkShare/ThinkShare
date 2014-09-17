@@ -12,3 +12,17 @@ E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.SqlSer
 E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.csprojResolveAssemblyReference.cache
 E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.exe
 E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.pdb
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.ConsoleClient.exe.config
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.exe
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.pdb
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.ConsoleClient.exe
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.ConsoleClient.pdb
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.dll
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.SqlServer.dll
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Data.dll
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Model.dll
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Data.pdb
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Model.pdb
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.xml
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.SqlServer.xml
+D:\Telerik\13. Web Services and Cloud Technologies\Team Lime\ThinkShare\ThinkShareCodeFirst\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.csprojResolveAssemblyReference.cache

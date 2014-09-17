@@ -186,6 +186,7 @@
     <Compile Include="Models\ArticlesInputModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\PasswordModel.cs" />
     <Compile Include="Models\ThinkShareServicesContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

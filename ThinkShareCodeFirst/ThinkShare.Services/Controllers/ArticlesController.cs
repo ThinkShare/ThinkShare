@@ -195,8 +195,8 @@
         }
 
         // DELETE: api/Articles/5
-        [ResponseType(typeof(Article))]
-        public IHttpActionResult DeleteArticle(int id, string password)
+        [ResponseType(typeof(PasswordModel))]
+        public IHttpActionResult DeleteArticle(int id, PasswordModel password)
         {
             var existingArticle = this.db.Articles.FirstOrDefault(a => a.Id == id);
 
@@ -205,7 +205,7 @@
                 return BadRequest("Such aircraft does not exists!");
             }
 
-            else if (existingArticle.Password != password)
+            else if (existingArticle.Password != password.Password)
             {
                 return BadRequest("Invalid password!");
             }

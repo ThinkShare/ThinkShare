@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Web.Http;
+    using System.Web.OData.Extensions;
 
     public static class WebApiConfig
     {
@@ -12,6 +13,8 @@
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            //config.EnableCors();
+            config.AddODataQueryFilter();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

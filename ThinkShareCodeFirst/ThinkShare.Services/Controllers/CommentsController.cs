@@ -88,7 +88,7 @@
         [ResponseType(typeof(Comment))]
         public IHttpActionResult PostComment(CommentModel comment)
         {
-            if (!ModelState.IsValid)
+            if (comment == null || !ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

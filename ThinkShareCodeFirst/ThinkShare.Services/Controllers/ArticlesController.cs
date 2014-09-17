@@ -168,19 +168,29 @@
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Articles
-        [ResponseType(typeof(Article))]
-        public IHttpActionResult PostArticle(Article article)
+        // POST: api/Articles/PostArticle
+        [ResponseType(typeof(ArticlesInputModel))]
+        public IHttpActionResult PostArticle(ArticlesInputModel article)
         {
-            if (!ModelState.IsValid)
+            if (article == null || !ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Articles.Add(article);
+            var newArticle = new Article
+            {
+                Heading = article.Heading,
+                Author = article.Author,
+                Text = article.Text,
+                Date = article.Date,
+                CategoryId = article.CategoryId,
+                Password = article.Password
+            };
+
+            db.Articles.Add(newArticle);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = article.Id }, article);
+            return Ok(newArticle);
         }
 
         // DELETE: api/Articles/5

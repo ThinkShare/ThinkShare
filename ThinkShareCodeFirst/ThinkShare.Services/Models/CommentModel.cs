@@ -1,6 +1,7 @@
-﻿using System;
-namespace ThinkShare.Services.Models
+﻿namespace ThinkShare.Services.Models
 {
+    using System;
+
     public class CommentModel
     {
         public string Text { get; set; }

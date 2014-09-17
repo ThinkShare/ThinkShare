@@ -7,12 +7,14 @@
     using System.Net;
     using System.Web.Http;
     using System.Web.Http.Description;
+    using System.Web.Http.Cors;
+    using ThinkShare.Data;
     using ThinkShare.Model;
     using ThinkShare.Services.Models;
-
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ArticlesController : ApiController
     {
-        private ThinkShareServicesContext db = new ThinkShareServicesContext();
+        private ThinkShareDbContext db = new ThinkShareDbContext();
 
         // GET: api/Articles
         public IQueryable<Object> GetArticles()

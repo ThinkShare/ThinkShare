@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Net.Http.Headers;
     using System.Web.Http;
+    using System.Web.Http.Cors;
     using System.Web.OData.Extensions;
 
     public static class WebApiConfig
@@ -11,7 +12,8 @@
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            var corsAttr = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(corsAttr);
             // Web API routes
             config.MapHttpAttributeRoutes();
             //config.EnableCors();

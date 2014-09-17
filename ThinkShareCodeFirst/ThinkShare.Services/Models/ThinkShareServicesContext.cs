@@ -20,6 +20,8 @@ namespace ThinkShare.Services.Models
         }
 
         public System.Data.Entity.DbSet<ThinkShare.Model.Article> Articles { get; set; }
+
+        public System.Data.Entity.DbSet<ThinkShare.Model.Comment> Comments { get; set; }
     
     }
 }

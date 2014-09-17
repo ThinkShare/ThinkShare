@@ -15,9 +15,15 @@
         private ThinkShareServicesContext db = new ThinkShareServicesContext();
 
         // GET: api/Articles
-        public IQueryable<Article> GetArticles()
+        public IQueryable<Object> GetArticles()
         {
-            return db.Articles;
+            return db.Articles.Select(x => new
+            {
+                articleId = x.Id,
+                articleHead = x.Heading,
+                articleAuthor = x.Author,
+                articleCategory = x.Category.PictureUrl
+            });
         }
 
         // GET: api/Articles/5
@@ -30,7 +36,20 @@
                 return NotFound();
             }
 
-            return Ok(article);
+            return Ok(new
+            {
+                articleId = article.Id,
+                articleHead = article.Heading,
+                articleAuthor = article.Author,
+                articleText = article.Text,
+                date = article.Date,
+                category = article.Category.Title,
+                comments = article.Comments.Select(x => new
+                {
+                    author = x.Author,
+                    text = x.Text
+                })
+            });
         }
 
         // GET: api/Articles/Pesho
@@ -43,7 +62,20 @@
                 return NotFound();
             }
 
-            return Ok(articles);
+            return Ok(articles.Select(x=>new
+            {
+                articleId = x.Id,
+                articleHead = x.Heading,
+                articleAuthor = x.Author,
+                articleText = x.Text,
+                date = x.Date,
+                category = x.Category.Title,
+                comments = x.Comments.Select(y => new
+                {
+                    author = y.Author,
+                    text = y.Text
+                })
+            }));
         }
 
         // PUT: api/Articles/5

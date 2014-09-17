@@ -10,20 +10,27 @@
     using System.Net.Http;
     using System.Web.Http;
     using System.Web.Http.Description;
+    using ThinkShare.Data;
     using ThinkShare.Model;
     using ThinkShare.Services.Models;
 
     public class CommentsController : ApiController
     {
-        private ThinkShareServicesContext db = new ThinkShareServicesContext();
+        private ThinkShareDbContext db = new ThinkShareDbContext();
 
-        // GET: api/Comments
-        public IQueryable<Comment> GetComments()
+        // GET: api/Comments/GetComments
+        public IQueryable<Object> GetComments()
         {
-            return db.Comments;
+            return db.Comments.Select(x => new CommentModel
+            {
+                ArticleId = x.ArticleId,
+                Author = x.Author,
+                Text = x.Text,
+                Date = x.Date
+            });
         }
 
-        // GET: api/Comments/5
+        // GET: api/Comments/GetComment/5
         [ResponseType(typeof(Comment))]
         public IHttpActionResult GetComment(int id)
         {
@@ -33,10 +40,16 @@
                 return NotFound();
             }
 
-            return Ok(comment);
+            return Ok(new CommentModel
+            {
+                ArticleId = comment.ArticleId,
+                Author = comment.Author,
+                Text = comment.Text,
+                Date = comment.Date
+            });
         }
 
-        // PUT: api/Comments/5
+        // PUT: api/Comments/PutComment/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutComment(int id, Comment comment)
         {
@@ -71,22 +84,30 @@
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Comments
+        // POST: api/Comments/PostComment
         [ResponseType(typeof(Comment))]
-        public IHttpActionResult PostComment(Comment comment)
+        public IHttpActionResult PostComment(CommentModel comment)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Comments.Add(comment);
+            var newComment = new Comment
+            {
+                Date = DateTime.Now,
+                Author = comment.Author,
+                ArticleId = comment.ArticleId,
+                Text = comment.Text
+            };
+
+            db.Comments.Add(newComment);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = comment.Id }, comment);
+            return Ok(newComment);
         }
 
-        // DELETE: api/Comments/5
+        // DELETE: api/Comments/DeleteComment/5
         [ResponseType(typeof(Comment))]
         public IHttpActionResult DeleteComment(int id)
         {

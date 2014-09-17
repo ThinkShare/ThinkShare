@@ -1,0 +1,14 @@
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.ConsoleClient.exe.config
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.ConsoleClient.exe
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.ConsoleClient.pdb
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.dll
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.SqlServer.dll
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Data.dll
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Model.dll
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Data.pdb
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\ThinkShare.Model.pdb
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.xml
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\bin\Debug\EntityFramework.SqlServer.xml
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.csprojResolveAssemblyReference.cache
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.exe
+E:\Teamwork\ThinkShare\ThinkShare.ConsoleClient\obj\Debug\ThinkShare.ConsoleClient.pdb

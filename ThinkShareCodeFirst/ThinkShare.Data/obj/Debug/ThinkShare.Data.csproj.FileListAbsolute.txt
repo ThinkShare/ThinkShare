@@ -1,0 +1,12 @@
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\ThinkShare.Data.dll.config
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\ThinkShare.Data.dll
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\ThinkShare.Data.pdb
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\EntityFramework.dll
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\ThinkShare.Model.dll
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\ThinkShare.Model.pdb
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\EntityFramework.xml
+E:\Teamwork\ThinkShare\ThinkShare.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\Teamwork\ThinkShare\ThinkShare.Data\obj\Debug\ThinkShare.Data.csprojResolveAssemblyReference.cache
+E:\Teamwork\ThinkShare\ThinkShare.Data\obj\Debug\ThinkShare.Data.dll
+E:\Teamwork\ThinkShare\ThinkShare.Data\obj\Debug\ThinkShare.Data.pdb

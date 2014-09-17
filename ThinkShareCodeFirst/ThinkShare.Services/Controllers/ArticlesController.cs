@@ -49,7 +49,8 @@
                 comments = article.Comments.Select(x => new
                 {
                     author = x.Author,
-                    text = x.Text
+                    text = x.Text,
+                    date = x.Date
                 })
             });
         }
@@ -75,7 +76,8 @@
                 comments = x.Comments.Select(y => new
                 {
                     author = y.Author,
-                    text = y.Text
+                    text = y.Text,
+                    date = y.Date
                 })
             }));
         }
@@ -101,7 +103,8 @@
                 comments = x.Comments.Select(y => new
                 {
                     author = y.Author,
-                    text = y.Text
+                    text = y.Text,
+                    date = y.Date
                 })
             }));
         }
@@ -128,7 +131,8 @@
                 comments = x.Comments.Select(y => new
                 {
                     author = y.Author,
-                    text = y.Text
+                    text = y.Text,
+                    date= y.Date
                 })
             }));
         }

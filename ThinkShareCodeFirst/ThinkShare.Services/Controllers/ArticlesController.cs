@@ -39,20 +39,20 @@
                 return NotFound();
             }
 
-            return Ok(new
+            return Ok(new ArticleModel
             {
-                articleId = article.Id,
-                articleHead = article.Heading,
-                articleAuthor = article.Author,
-                articleText = article.Text,
-                date = article.Date,
-                category = article.Category.Id,
-                comments = article.Comments.Select(x => new ArticleModel
+                ArticleId = article.Id,
+                ArticleHead = article.Heading,
+                ArticleAuthor = article.Author,
+                ArticleText = article.Text,
+                Date = article.Date,
+                Category = article.Category.Id,
+                Comments = article.Comments.Select(x => new CommentModel
                 {
-                    ArticleAuthor = x.Author,
-                    ArticleText = x.Text,
+                    Author = x.Author,
+                    Text = x.Text,
                     Date = x.Date
-                })
+                }).ToList()
             });
         }
 
@@ -90,7 +90,7 @@
                 ArticleId = x.Id,
                 ArticleHead = x.Heading,
                 ArticleAuthor = x.Author,
-                ArticleCategory = x.Category.PictureUrl
+                ArticleCategory = x.Category.PictureUrl              
             }));
         }
 
@@ -117,7 +117,7 @@
                 {
                     Author = y.Author,
                     Text = y.Text,
-                    Date = y.Date
+                    Date= y.Date
                 }).ToList()
             }));
         }
@@ -226,7 +226,7 @@
         private ICollection<Tag> GenerateTags(string articleHead)
         {
             var list = new List<Tag>();
-            var tagsAsString = articleHead.Split(new char[] { ' ', '!', '.', ',', ';', '?', '"', '\'' }, StringSplitOptions.RemoveEmptyEntries);
+            var tagsAsString = articleHead.Split(new char[] { ' ' , '!' ,'.' , ',' ,';' ,'?' ,'"' , '\'' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var tag in tagsAsString)
             {
                 var current = db.Tags.FirstOrDefault(t => t.Word == tag);

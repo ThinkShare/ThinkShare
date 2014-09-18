@@ -106,25 +106,26 @@
             }
 
             return Ok(articles.Select(x => new
-            {
-                articleId = x.Id,
-                articleHead = x.Heading,
-                articleAuthor = x.Author,
-                articleText = x.Text,
-                date = x.Date,
-                category = x.Category.Id,
-                comments = x.Comments.Select(y => new
+            ArticleModel{
+                ArticleId = x.Id,
+                ArticleHead = x.Heading,
+                ArticleAuthor = x.Author,
+                ArticleText = x.Text,
+                Date = x.Date,
+                Category = x.Category.Id,
+                Comments = x.Comments.Select(y => new
+                CommentModel
                 {
-                    author = y.Author,
-                    text = y.Text,
-                    date= y.Date
-                })
+                    Author = y.Author,
+                    Text = y.Text,
+                    Date= y.Date
+                }).ToList()
             }));
         }
 
         // PUT: api/Articles/PutArticle/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutArticle(int id, ArticlesInputModel article)
+        public IHttpActionResult PutArticle(int id, ArticleModel article)
         {
             if (!ModelState.IsValid)
             {
@@ -155,14 +156,15 @@
         }
 
         // POST: api/Articles/PostArticle
-        [ResponseType(typeof(ArticlesInputModel))]
-        public IHttpActionResult PostArticle(ArticlesInputModel article)
+        [ResponseType(typeof(ArticleModel))]
+        public IHttpActionResult PostArticle(ArticleModel article)
         {
             if (article == null || !ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            ICollection<Tag> tags = GenerateTags(article.ArticleHead);
+
+            var tags = GenerateTags(article.ArticleHead);
             var newArticle = new Article
             {
                 Heading = article.ArticleHead,

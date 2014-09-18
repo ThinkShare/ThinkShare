@@ -20,12 +20,12 @@
         // GET: api/Articles
         public IQueryable<Object> GetArticles()
         {
-            return db.Articles.Select(x => new
+            return db.Articles.Select(x => new ArticleModel
             {
-                articleId = x.Id,
-                articleHead = x.Heading,
-                articleAuthor = x.Author,
-                articleCategory = x.Category.PictureUrl
+                ArticleId = x.Id,
+                ArticleHead = x.Heading,
+                ArticleAuthor = x.Author,
+                ArticleCategory = x.Category.PictureUrl
             });
         }
 

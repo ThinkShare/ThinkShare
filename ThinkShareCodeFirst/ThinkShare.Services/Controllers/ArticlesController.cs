@@ -70,15 +70,7 @@
                 articleId = x.Id,
                 articleHead = x.Heading,
                 articleAuthor = x.Author,
-                articleText = x.Text,
-                date = x.Date,
-                category = x.Category.Id,
-                comments = x.Comments.Select(y => new
-                {
-                    author = y.Author,
-                    text = y.Text,
-                    date = y.Date
-                })
+                articleCategory = x.Category.PictureUrl
             }));
         }
 
@@ -97,15 +89,7 @@
                 articleId = x.Id,
                 articleHead = x.Heading,
                 articleAuthor = x.Author,
-                articleText = x.Text,
-                date = x.Date,
-                category = x.Category.Id,
-                comments = x.Comments.Select(y => new
-                {
-                    author = y.Author,
-                    text = y.Text,
-                    date = y.Date
-                })
+                articleCategory = x.Category.PictureUrl
             }));
         }
 

@@ -47,11 +47,11 @@
                 articleText = article.Text,
                 date = article.Date,
                 category = article.Category.Id,
-                comments = article.Comments.Select(x => new
+                comments = article.Comments.Select(x => new ArticleModel
                 {
-                    author = x.Author,
-                    text = x.Text,
-                    date = x.Date
+                    ArticleAuthor = x.Author,
+                    ArticleText = x.Text,
+                    Date = x.Date
                 })
             });
         }
@@ -90,7 +90,7 @@
                 ArticleId = x.Id,
                 ArticleHead = x.Heading,
                 ArticleAuthor = x.Author,
-                ArticleCategory = x.Category.PictureUrl              
+                ArticleCategory = x.Category.PictureUrl
             }));
         }
 
@@ -117,7 +117,7 @@
                 {
                     Author = y.Author,
                     Text = y.Text,
-                    Date= y.Date
+                    Date = y.Date
                 }).ToList()
             }));
         }
@@ -226,7 +226,7 @@
         private ICollection<Tag> GenerateTags(string articleHead)
         {
             var list = new List<Tag>();
-            var tagsAsString = articleHead.Split(new char[] { ' ' , '!' ,'.' , ',' ,';' ,'?' ,'"' , '\'' }, StringSplitOptions.RemoveEmptyEntries);
+            var tagsAsString = articleHead.Split(new char[] { ' ', '!', '.', ',', ';', '?', '"', '\'' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var tag in tagsAsString)
             {
                 var current = db.Tags.FirstOrDefault(t => t.Word == tag);

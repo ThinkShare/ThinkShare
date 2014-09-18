@@ -86,11 +86,11 @@
             }
 
             return Ok(articles.Select(x => new
-            {
-                articleId = x.Id,
-                articleHead = x.Heading,
-                articleAuthor = x.Author,
-                articleCategory = x.Category.PictureUrl
+            ArticleModel{
+                ArticleId = x.Id,
+                ArticleHead = x.Heading,
+                ArticleAuthor = x.Author,
+                ArticleCategory = x.Category.PictureUrl              
             }));
         }
 

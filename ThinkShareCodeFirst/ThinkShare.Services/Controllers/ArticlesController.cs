@@ -66,12 +66,12 @@
                 return NotFound();
             }
 
-            return Ok(articles.Select(x=>new
+            return Ok(articles.Select(x => new ArticleModel
             {
-                articleId = x.Id,
-                articleHead = x.Heading,
-                articleAuthor = x.Author,
-                articleCategory = x.Category.PictureUrl
+                ArticleId = x.Id,
+                ArticleHead = x.Heading,
+                ArticleAuthor = x.Author,
+                ArticleCategory = x.Category.PictureUrl
             }));
         }
 
@@ -85,8 +85,8 @@
                 return NotFound();
             }
 
-            return Ok(articles.Select(x => new
-            ArticleModel{
+            return Ok(articles.Select(x => new ArticleModel
+            {
                 ArticleId = x.Id,
                 ArticleHead = x.Heading,
                 ArticleAuthor = x.Author,
@@ -105,16 +105,15 @@
                 return NotFound();
             }
 
-            return Ok(articles.Select(x => new
-            ArticleModel{
+            return Ok(articles.Select(x => new ArticleModel
+            {
                 ArticleId = x.Id,
                 ArticleHead = x.Heading,
                 ArticleAuthor = x.Author,
                 ArticleText = x.Text,
                 Date = x.Date,
                 Category = x.Category.Id,
-                Comments = x.Comments.Select(y => new
-                CommentModel
+                Comments = x.Comments.Select(y => new CommentModel
                 {
                     Author = y.Author,
                     Text = y.Text,

@@ -11,6 +11,7 @@
     using ThinkShare.Data;
     using ThinkShare.Model;
     using ThinkShare.Services.Models;
+    using System.Collections.Generic;
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ArticlesController : ApiController
     {
@@ -161,7 +162,7 @@
             {
                 return BadRequest(ModelState);
             }
-
+            ICollection<Tag> tags = GenerateTags(article.ArticleHead);
             var newArticle = new Article
             {
                 Heading = article.ArticleHead,
@@ -172,11 +173,18 @@
                 Password = article.Password
             };
 
+            foreach (var tag in tags)
+            {
+                newArticle.Tags.Add(tag);
+            }
+
             db.Articles.Add(newArticle);
             db.SaveChanges();
 
             return Ok(newArticle);
         }
+
+
 
         // DELETE: api/Articles/5
         [ResponseType(typeof(PasswordModel))]
@@ -212,6 +220,30 @@
         private bool ArticleExists(int id)
         {
             return db.Articles.Count(e => e.Id == id) > 0;
+        }
+
+        private ICollection<Tag> GenerateTags(string articleHead)
+        {
+            var list = new List<Tag>();
+            var tagsAsString = articleHead.Split(new char[] { ' ' , '!' ,'.' , ',' ,';' ,'?' ,'"' , '\'' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var tag in tagsAsString)
+            {
+                var current = db.Tags.FirstOrDefault(t => t.Word == tag);
+                if (current != null)
+                {
+                    list.Add(current);
+                }
+                else
+                {
+                    var newTag = new Tag()
+                    {
+                        Word = tag
+                    };
+                    list.Add(newTag);
+                }
+            }
+
+            return list;
         }
     }
 }

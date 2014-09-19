@@ -60,46 +60,51 @@
         [ResponseType(typeof(Article))]
         public IHttpActionResult GetArticlesByAuthorName(string name)
         {
-            var articles = db.Articles.Where(x => x.Author == name);
+            var articles = db.Articles
+                .Where(x => x.Author == name)
+                .Select(x => new ArticleModel
+                            {
+                                ArticleId = x.Id,
+                                ArticleHead = x.Heading,
+                                ArticleAuthor = x.Author,
+                                ArticleCategory = x.Category.PictureUrl
+                            });
+
             if (articles.Count() == 0)
             {
                 return NotFound();
             }
 
-            return Ok(articles.Select(x => new ArticleModel
-            {
-                ArticleId = x.Id,
-                ArticleHead = x.Heading,
-                ArticleAuthor = x.Author,
-                ArticleCategory = x.Category.PictureUrl
-            }));
+            return Ok(articles);
         }
 
         // GET: api/Articles/Categories/3
         [ResponseType(typeof(Article))]
         public IHttpActionResult GetArticlesByCategoryId(int id)
         {
-            var articles = db.Articles.Where(x => x.Category.Id == id);
+            var articles = db.Articles
+                .Where(x => x.Category.Id == id)
+                .Select(x => new ArticleModel
+                            {
+                                ArticleId = x.Id,
+                                ArticleHead = x.Heading,
+                                ArticleAuthor = x.Author,
+                                ArticleCategory = x.Category.PictureUrl
+                            });
+
             if (articles.Count() == 0)
             {
                 return NotFound();
             }
 
-            return Ok(articles.Select(x => new ArticleModel
-            {
-                ArticleId = x.Id,
-                ArticleHead = x.Heading,
-                ArticleAuthor = x.Author,
-                ArticleCategory = x.Category.PictureUrl              
-            }));
+            return Ok(articles);
         }
 
         // GET: api/Articles/Pesho
         [ResponseType(typeof(Article))]
         public IHttpActionResult GetArticlesByTag(string tagName)
         {
-
-            var articles = db.Articles.Where(x => x.Tags.Any(t=>t.Word == tagName)).Select(a=>a);
+            var articles = db.Articles.Where(x => x.Tags.Any(t => t.Word == tagName)).Select(a => a);
 
             if (articles.Count() == 0)
             {
@@ -219,7 +224,7 @@
         private ICollection<Tag> GenerateTags(string articleHead)
         {
             var list = new List<Tag>();
-            var tagsAsString = articleHead.Split(new char[] { ' ' , '!' ,'.' , ',' ,';' ,'?' ,'"' , '\'' }, StringSplitOptions.RemoveEmptyEntries);
+            var tagsAsString = articleHead.Split(new char[] { ' ', '!', '.', ',', ';', '?', '"', '\'' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var tag in tagsAsString)
             {
                 var current = db.Tags.FirstOrDefault(t => t.Word == tag);

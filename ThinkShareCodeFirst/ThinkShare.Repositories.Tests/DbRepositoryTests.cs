@@ -41,7 +41,7 @@
             var category = new Category
             {
                 PictureUrl = "http://www.test.com/",
-                Title = "Test"
+                Title = "Testss"
             };
             this.dbContext.Set<Category>().Add(category);
             this.dbContext.SaveChanges();
@@ -57,7 +57,7 @@
                 Category = new Category
                 {
                     PictureUrl = "http://www.test.com/",
-                    Title = "Test"
+                    Title = "Testss"
                 },
                 Password = "TestPass",
                 Date = DateTime.Now
@@ -74,7 +74,7 @@
             var comment = new Comment
             {
                 PictureUrl = "http://www.test.com/",
-                Text = "Test",
+                Text = "Testss",
                 Date = DateTime.Now
             };
             this.dbContext.Set<Comment>().Add(comment);
@@ -91,7 +91,7 @@
                 var category = new Category
                 {
                     PictureUrl = "http://www.test.com/",
-                    Title = "Test"
+                    Title = "Testss"
                 };
                 this.dbContext.Set<Category>().Add(category);
                 this.dbContext.SaveChanges();
@@ -117,7 +117,7 @@
                     Category = new Category
                     {
                         PictureUrl = "http://www.test.com/",
-                        Title = "Test"
+                        Title = "Testss"
                     },
                     Password = "TestPass",
                     Date = DateTime.Now
@@ -144,7 +144,7 @@
                 var comment = new Comment
                 {
                     PictureUrl = "http://www.test.com/",
-                    Text = "Test",
+                    Text = "Testss",
                     Date = DateTime.Now
                 };
                 this.dbContext.Set<Comment>().Add(comment);

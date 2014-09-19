@@ -104,20 +104,22 @@
         [ResponseType(typeof(Article))]
         public IHttpActionResult GetArticlesByTag(string tagName)
         {
-            var articles = db.Articles.Where(x => x.Tags.Any(t => t.Word == tagName)).Select(a => a);
+            var articles = db.Articles
+                .Where(x => x.Tags.Any(t => t.Word == tagName))
+                .Select(x => new ArticleModel
+                            {
+                                ArticleId = x.Id,
+                                ArticleHead = x.Heading,
+                                ArticleAuthor = x.Author,
+                                ArticleCategory = x.Category.PictureUrl
+                            });
 
             if (articles.Count() == 0)
             {
                 return NotFound();
             }
 
-            return Ok(articles.Select(x => new ArticleModel
-            {
-                ArticleId = x.Id,
-                ArticleHead = x.Heading,
-                ArticleAuthor = x.Author,
-                ArticleCategory = x.Category.PictureUrl
-            }));
+            return Ok(articles);
         }
 
         // PUT: api/Articles/PutArticle/5

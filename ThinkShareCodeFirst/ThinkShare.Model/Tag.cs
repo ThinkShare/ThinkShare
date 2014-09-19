@@ -1,7 +1,6 @@
 ﻿namespace ThinkShare.Model
 {
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
 
     public class Tag
     {
@@ -14,8 +13,6 @@
 
         public int Id { get; set; }
 
-        [MinLength(2)]
-        [MaxLength(30)]
         public string Word { get; set; }
 
         public virtual ICollection<Article> Articles

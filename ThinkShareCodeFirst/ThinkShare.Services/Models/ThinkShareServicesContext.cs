@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-
-namespace ThinkShare.Services.Models
+﻿namespace ThinkShare.Services.Models
 {
+    using System;
+    using System.Data.Entity;
+    using System.Linq;
+
     public class ThinkShareServicesContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.

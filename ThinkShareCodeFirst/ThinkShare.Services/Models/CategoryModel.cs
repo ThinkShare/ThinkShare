@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-namespace ThinkShare.Services.Models
+﻿namespace ThinkShare.Services.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class CategoryModel
     {
         public int Id { get; set; }

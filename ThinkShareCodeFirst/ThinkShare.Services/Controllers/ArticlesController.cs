@@ -1,10 +1,7 @@
 ﻿namespace ThinkShare.Services.Controllers
 {
     using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
-    using System.Net;
     using System.Web.Http;
     using System.Web.Http.Description;
     using System.Web.Http.Cors;
@@ -197,7 +194,6 @@
             {
                 return BadRequest("Such aircraft does not exists!");
             }
-
             else if (existingArticle.Password != password.Password)
             {
                 return BadRequest("Invalid password!");
@@ -216,11 +212,6 @@
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private bool ArticleExists(int id)
-        {
-            return db.Articles.Count(e => e.Id == id) > 0;
         }
 
         private ICollection<Tag> GenerateTags(string articleHead)

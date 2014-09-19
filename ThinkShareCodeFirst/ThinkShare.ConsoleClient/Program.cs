@@ -7,9 +7,9 @@
     {
         public static void Main()
         {
-            var data = new ThinkShareData();
-            data.Categories.Add(new Category() { PictureUrl = "http://www.telerik-kids.com/images/photos/telerik_kids_academy.jpg?sfvrsn=2", Title = "Kids Academy" });
-            data.SaveChanges();
+            //var data = new ThinkShareData();
+            //data.Categories.Add(new Category() { PictureUrl = "http://www.telerik-kids.com/images/photos/telerik_kids_academy.jpg?sfvrsn=2", Title = "Kids Academy" });
+            //data.SaveChanges();
         }
     }
 }

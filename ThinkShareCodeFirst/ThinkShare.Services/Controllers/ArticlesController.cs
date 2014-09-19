@@ -98,12 +98,8 @@
         [ResponseType(typeof(Article))]
         public IHttpActionResult GetArticlesByTag(string tagName)
         {
-            var tag = new Tag()
-            {
-                Word = tagName
-            };
 
-            var articles = db.Articles.Where(x => x.Tags.Contains(tag));
+            var articles = db.Articles.Where(x => x.Tags.Any(t=>t.Word == tagName)).Select(a=>a);
 
             if (articles.Count() == 0)
             {

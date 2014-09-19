@@ -96,8 +96,13 @@
 
         // GET: api/Articles/Pesho
         [ResponseType(typeof(Article))]
-        public IHttpActionResult GetArticlesByTag(Tag tag)
+        public IHttpActionResult GetArticlesByTag(string tagName)
         {
+            var tag = new Tag()
+            {
+                Word = tagName
+            };
+
             var articles = db.Articles.Where(x => x.Tags.Contains(tag));
 
             if (articles.Count() == 0)
@@ -110,15 +115,7 @@
                 ArticleId = x.Id,
                 ArticleHead = x.Heading,
                 ArticleAuthor = x.Author,
-                ArticleText = x.Text,
-                Date = x.Date,
-                Category = x.Category.Id,
-                Comments = x.Comments.Select(y => new CommentModel
-                {
-                    Author = y.Author,
-                    Text = y.Text,
-                    Date= y.Date
-                }).ToList()
+                ArticleCategory = x.Category.PictureUrl
             }));
         }
 
